@@ -7,15 +7,17 @@ public class Hangman {
 
 		Scanner input = new Scanner(System.in);
 
+		// GuessWord is the word be are looking for
 		
-		String guessWord = ("test"); 
+		String guessWord = ("Submariner"); 
 		guessWord = guessWord.trim(); 
 		guessWord = guessWord.replaceAll(" ", "  ");
 		guessWord = guessWord.toUpperCase();
 		String guessWord1 = guessWord.replaceAll("[A-Z]", "_ ");
 		
 		
-		
+		// Counting attempts, 5 guesses
+		// Remember the guessed letter and tells you if you used it again.
 
 		int attempts = 0;
 		int incorrect = 0;
@@ -28,7 +30,9 @@ public class Hangman {
 	
 
 		while (incorrect < 5 && guessWord1.contains("_")) {
-
+			
+			// Drawing the hangman step by step in 4 steps. 5 step gives Game over and a full hanged man!.
+			
 			System.out.println(guessWord1);
 			System.out.print("\n");
 			System.out.println("You have " + incorrect + " incorrect guesses so far.");
@@ -79,6 +83,8 @@ public class Hangman {
 			guessescontainsguess = (guesses.indexOf(letter)) != -1;
 			guesses += letter; 
 
+			// Prints out that you have used this letter before.
+			
 			letter = Character.toUpperCase(letter); 
 			System.out.print("\n");
 			if (guessescontainsguess == true) { 
@@ -89,7 +95,8 @@ public class Hangman {
 				} 
 
 			} 
-
+			// If letter is correct message.
+			
 			phrasecontainsguess = (guessWord.indexOf(letter)) != -1;
 			if (phrasecontainsguess == true) { 
 				System.out.println(letter + " is in the word.");
@@ -114,7 +121,7 @@ public class Hangman {
 			attempts++; 
 
 		} 
-
+		// Last pic of the hanged man.
 		if (incorrect == 5) { 
 			System.out.println("         ____________");
 			System.out.println("        |      |     |");
@@ -126,7 +133,9 @@ public class Hangman {
 			System.out.print("\n");
 			System.out.println("GAME OVER!");
 		} else {
-
+			
+			// When you guess the right word prints the winning message.
+			
 			System.out.println("The word is:"); 
 			System.out.println(guessWord1);
 			System.out.println("Congratz, you won!");
