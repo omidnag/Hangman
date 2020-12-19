@@ -6,10 +6,12 @@ public class Hangman {
 		
 
 		Scanner input = new Scanner(System.in);
-
-		// GuessWord is the word be are looking for
 		
-		String guessWord = ("Submariner"); 
+		
+		// Choose the word to guess.
+		
+		System.out.println("Choose a word:");
+		String guessWord = input.nextLine(); 
 		guessWord = guessWord.trim(); 
 		guessWord = guessWord.replaceAll(" ", "  ");
 		guessWord = guessWord.toUpperCase();
